@@ -52,13 +52,6 @@ def naked_twins(values):
 # How do we use constraint propagation to solve the diagonal sudoku problem?  
  In order of being able to solve diagonal sudokus, we constrained our solution by forbidding repeated values along the two diagonals (A1, B2, C3, D4, E5, F6, G7, H8, I9 and A9,  B8, C7, D6, E5, F4, G3, H2, I1). More concretely, no number can be repeated within the same unit, where a unit is a row, a column, a diagonal or a 3x3 square.
 
-### Install
-
-This project requires **Python 3**.
-
-We recommend students install [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
-Please try using the environment we provided in the Anaconda lesson of the Nanodegree.
-
 ##### Optional: Pygame
 
 Optionally, you can also install pygame if you want to see our visualization.
@@ -74,6 +67,8 @@ If not, please see how to download pygame [here](http://www.pygame.org/download.
 
 
 ### Environment
+
+Please use [Anaconda](https://www.continuum.io/downloads). Then:
 
 ```
 conda env -f aind-environment-unix.yml
