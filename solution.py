@@ -3,7 +3,6 @@ assignments = []
 
 def assign_value(values, box, value):
     """
-    Please use this function to update your values dictionary!
     Assigns a value to a given box. If it updates the board record it.
     """
 
@@ -17,9 +16,9 @@ def assign_value(values, box, value):
     return values
 
 
-def cross(A, B):
-    "Cross product of elements in A and elements in B."
-    return [x + y for x in A for y in B]
+def cross(string1, string2):
+    """Cross product of elements in A and elements in B."""
+    return [x + y for x in string1 for y in string2]
 
 
 def grid_values(grid):
@@ -40,6 +39,7 @@ def grid_values(grid):
         if c == '.':
             chars.append(digits)
     assert len(chars) == 81
+
     return dict(zip(boxes, chars))
 
 
@@ -60,6 +60,7 @@ def display(values):
 
 
 def eliminate(values):
+    """Eliminates repeated values among peer boxes."""
     for box, val in values.items():
         if len(val) == 1:
             box_peers = peers[box]
@@ -132,6 +133,7 @@ def reduce_puzzle(values):
     while not stalled:
         solved_values_before = len([box for box in values.keys() if len(values[box]) == 1])
 
+        # Apply strategies
         values = eliminate(values)
         values = naked_twins(values)
         values = only_choice(values)
