@@ -43,7 +43,9 @@ def AAfilledRoundedRect(surface, rect, color, radius=0.4):
 
 
 class SudokuSquare:
-    """A sudoku square class."""
+    """
+    A sudoku square class.
+    """
 
     def __init__(self, number=None, offsetX=0, offsetY=0, edit="Y", xLoc=0, yLoc=0):
         if number is not None:
@@ -52,19 +54,11 @@ class SudokuSquare:
         else:
             number = ""
             self.color = (255, 255, 255)
-        # print("FONTS", pygame.font.get_fonts())
+
         self.font = pygame.font.SysFont('opensans', 21)
         self.text = self.font.render(number, 1, (255, 255, 255))
         self.textpos = self.text.get_rect()
         self.textpos = self.textpos.move(offsetX + 17, offsetY + 4)
-
-        # self.collide = pygame.Surface((25, 22))
-        # self.collide = self.collide.convert()
-        # AAfilledRoundedRect(pygame.display.get_surface(), (xLoc, yLoc, 25, 22), (255, 255, 255))
-        # self.collide.fill((2, 204, 186))
-        # self.collideRect = self.collide.get_rect()
-        # self.collideRect = self.collideRect.move(offsetX + 1, offsetY + 1)
-        # The rect around the text is 11 x 28
 
         self.edit = edit
         self.xLoc = xLoc
@@ -104,9 +98,13 @@ class SudokuSquare:
         if self.edit == "Y":
             self.text = self.font.render(number, 1, (0, 0, 0))
             self.draw()
+            
             return 0
         else:
             return 1
 
     def currentLoc(self):
+        """
+        Returns current location as a pair of (X, Y) coordinates.
+        """
         return self.xLoc, self.yLoc
