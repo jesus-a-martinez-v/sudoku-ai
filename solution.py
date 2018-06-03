@@ -17,7 +17,9 @@ def assign_value(values, box, value):
 
 
 def cross(string1, string2):
-    """Cross product of elements in A and elements in B."""
+    """
+    Cross product of elements in A and elements in B.
+    """
     return [x + y for x in string1 for y in string2]
 
 
@@ -60,7 +62,9 @@ def display(values):
 
 
 def eliminate(values):
-    """Eliminates repeated values among peer boxes."""
+    """
+    Eliminates repeated values among peer boxes.
+    """
     for box, val in values.items():
         if len(val) == 1:
             box_peers = peers[box]
@@ -86,7 +90,8 @@ def only_choice(values):
 
 
 def naked_twins(values):
-    """Eliminate values using the naked twins strategy.
+    """
+    Eliminate values using the naked twins strategy.
     Args:
         values(dict): a dictionary of the form {'box_name': '123456789', ...}
 
@@ -198,6 +203,7 @@ peers = dict((s, set(sum(units[s], [])) - {s}) for s in boxes)
 if __name__ == '__main__':
     diagonal_sudoku_grid = '2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3'
     representation = solve(diagonal_sudoku_grid)
+    
     if representation is not False:
         display(representation)
     else:
